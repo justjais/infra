@@ -1,0 +1,8 @@
+---
+- hosts: all
+  gather_facts: no
+
+  roles:
+    - name: privateip.eos
+      function: load_config
+      config_file: "files/base/{{ inventory_hostname_short }}"
