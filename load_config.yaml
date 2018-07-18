@@ -1,0 +1,15 @@
+---
+- hosts: all
+  gather_facts: no
+
+  roles:
+    - name: privateip.eos
+      function: load_config
+      config_file: "{{ config_file }}"
+      with_first_found:
+        - files:
+            - "{{ config_file }}"
+          paths:
+            - "files/eos/{{ inventory_hostname_short }}"
+            - "files/eos/default"
+
