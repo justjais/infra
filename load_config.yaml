@@ -8,7 +8,7 @@
       config_file: "{{ item }}"
       with_first_found:
         - files:
-            - "{{ config_file }}"
+            - "{{ src }}"
           paths:
             - "files/eos/{{ inventory_hostname_short }}"
             - "files/eos/default"
