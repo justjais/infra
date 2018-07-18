@@ -2,10 +2,13 @@
 - hosts: all
   gather_facts: no
 
-  roles:
-    - name: privateip.eos
-      function: load_config
-      config_file: "{{ item }}"
+  tasks:
+    - name: load configuration from file
+      include_role:
+        name: privateip.eos
+        tasks_from: load_config
+      vars:
+        config_file: "{{ item }}"
       with_first_found:
         - files:
             - "{{ src }}"
