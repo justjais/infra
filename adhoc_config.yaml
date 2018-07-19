@@ -1,0 +1,15 @@
+---
+- hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: write adhoc commands to temp file
+      copy:
+        content: "{{ src }}"
+        dest: ~/.ansible/network/adhoc
+        force: yes
+
+    - name: include platform specific tasks
+      include_tasks: "includes/{{ ansible_network_os }}/load_config.yaml"
+      vars:
+        src: ~/.ansible/network/adhoc

@@ -3,16 +3,5 @@
   gather_facts: no
 
   tasks:
-    - name: load configuration from file
-      include_role:
-        name: privateip.eos
-        tasks_from: load_config
-      vars:
-        config_file: "{{ item }}"
-      with_first_found:
-        - files:
-            - "{{ src }}"
-          paths:
-            - "files/eos/{{ inventory_hostname_short }}"
-            - "files/eos/default"
-
+    - name: include platform specific tasks
+      include_tasks: "includes/{{ ansible_network_os }}/load_config.yaml"
