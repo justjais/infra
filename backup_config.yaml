@@ -4,7 +4,7 @@
 
   tasks:
     - name: get active configuration from network device
-      include_tasks: "includes/{{ ansible_network_os }}/backup.yaml"
+      include_tasks: "includes/{{ ansible_network_os }}/backup_config.yaml"
 
     - name: write configuration to ansible controller
       copy:
