@@ -8,5 +8,5 @@
 
     - name: write configuration to ansible controller
       copy:
-        content: "{{ cgonfiguration }}"
+        content: "{{ configuration }}"
         dest: "/opt/network/{{ inventory_hostname_short }}.cfg"
