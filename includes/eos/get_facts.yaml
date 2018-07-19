@@ -1,0 +1,9 @@
+---
+- name: collect eos facts from device
+  import_role:
+    name: privateip.eos
+    function: get_facts
+
+- name: display facts to stdout
+  debug:
+    var: arista_eos

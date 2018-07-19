@@ -1,0 +1,9 @@
+hostname bad-config
+
+interface Ethernet1
+description testing bad config
+shutdown
+
+router bgp 650000
+router-id 1.1.1.1
+
