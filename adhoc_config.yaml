@@ -3,6 +3,11 @@
   gather_facts: no
 
   tasks:
+    - name: make temp folder
+      file:
+        path: ~/.ansible/network
+        state: directory
+
     - name: write adhoc commands to temp file
       copy:
         content: "{{ src }}"
