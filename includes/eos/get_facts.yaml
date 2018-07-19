@@ -2,7 +2,7 @@
 - name: collect eos facts from device
   import_role:
     name: privateip.eos
-    function: get_facts
+    tasks_from: get_facts
 
 - name: display facts to stdout
   debug:
