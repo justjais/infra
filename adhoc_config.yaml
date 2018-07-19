@@ -5,16 +5,16 @@
   tasks:
     - name: make temp folder
       file:
-        path: ~/.ansible/network
+        path: /tmp/_tmp_ansible/network
         state: directory
 
     - name: write adhoc commands to temp file
       copy:
         content: "{{ src }}"
-        dest: ~/.ansible/network/adhoc
+        dest: /tmp/_tmp_ansible/network/adhoc
         force: yes
 
     - name: include platform specific tasks
       include_tasks: "includes/{{ ansible_network_os }}/load_config.yaml"
       vars:
-        src: ~/.ansible/network/adhoc
+        src: /tmp/_tmp_ansible/network/adhoc
