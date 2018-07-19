@@ -1,0 +1,9 @@
+---
+- name: collect eos facts from device
+  import_role:
+    name: privateip.eos
+    tasks_from: get_facts
+
+- name: display software version to stdout
+  debug:
+    msg: "current software version is {{ arista_eos.capabilities.network_os_version }}"
