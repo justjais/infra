@@ -1,0 +1,4 @@
+---
+- name: save the running-config to startup-config on the target device
+  eos_command:
+    commands: copy running-config startup-config
