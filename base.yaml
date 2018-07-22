@@ -2,8 +2,11 @@
 - hosts: all
   gather_facts: no
 
-  roles:
-    - name: privateip.eos
-      function: load_config
-      config_file: "files/base/{{ inventory_hostname_short }}.cfg"
-      replace: yes
+  tasks:
+    - name: replace device configuration with default
+      include_role:
+        name: "{{ ansible_network_provider }}"
+        tasks_from: load_config
+      vars:
+        config_file: "files/base/{{ inventory_hostname_short }}.cfg"
+        replace: yes

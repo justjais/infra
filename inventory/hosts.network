@@ -10,6 +10,7 @@ ansible_network_os=eos
 ansible_become=yes
 ansible_become_method=enable
 ansible_connection=network_cli
+ansible_network_provider=privateip.eos
 
 [junos]
 vsrx01 ansible_host=an-vsrx-01.ansible.eng.rdu2.redhat.com
@@ -34,6 +35,8 @@ ansible_network_os=ios
 ansible_become=yes
 ansible_become_method=enable
 ansible_become_pass=cisco
+ansible_connection=network_cli
+ansible_network_provider=privateip.ios
 
 [iosxr]
 iosxr01 ansible_host=an-iosxr-01.ansible.eng.rdu2.redhat.com

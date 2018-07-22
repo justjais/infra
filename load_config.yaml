@@ -3,5 +3,20 @@
   gather_facts: no
 
   tasks:
-    - name: include platform specific tasks
-      include_tasks: "includes/{{ ansible_network_os }}/load_config.yaml"
+    - name: read configuration file
+      set_fact:
+        config_text: "{{ lookup('network_template', item) }}"
+      with_first_found:
+        - files:
+            - "{{ src }}"
+          paths:
+            - "templates/{{ ansible_network_os }}/{{ inventory_hostname_short }}"
+            - "templates/{{ ansible_network_os }}/default"
+      when: src is defined
+
+    - name: load configuration from text
+      include_role:
+        name: ansible-network.network-engine
+      vars:
+        function: load_config
+      when: config_text is defined
