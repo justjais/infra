@@ -29,6 +29,8 @@ ansible_network_os=nxos
 [ios]
 ios01 ansible_host=an-ios-01.ansible.eng.rdu2.redhat.com
 ios02 ansible_host=an-ios-02.ansible.eng.rdu2.redhat.com
+csr01 ansible_host=an-csr-01.ansible.eng.rdu2.redhat.com
+csr02 ansible_host=an-csr-02.ansible.eng.rdu2.redhat.com
 
 [ios:vars]
 ansible_network_os=ios
