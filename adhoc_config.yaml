@@ -3,18 +3,7 @@
   gather_facts: no
 
   tasks:
-    - name: make temp folder
-      file:
-        path: /tmp/_tmp_ansible/network
-        state: directory
-
-    - name: write adhoc commands to temp file
-      copy:
-        content: "{{ src }}"
-        dest: /tmp/_tmp_ansible/network/adhoc
-        force: yes
-
-    - name: include platform specific tasks
-      include_tasks: "includes/{{ ansible_network_os }}/load_config.yaml"
-      vars:
-        src: /tmp/_tmp_ansible/network/adhoc
+    - name: load configuration from text
+      include_role:
+        name: "{{ ansible_network_provider }}"
+        tasks_from: load_config

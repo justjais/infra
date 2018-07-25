@@ -3,20 +3,16 @@
   gather_facts: no
 
   tasks:
-    - name: read configuration file
-      set_fact:
-        config_text: "{{ lookup('network_template', item) }}"
+    - name: load configuration from text
+      include_role:
+        name: "{{ ansible_network_provider }}"
+        tasks_from: load_config
+      loop_control:
+        loop_var: config_file
       with_first_found:
         - files:
-            - "{{ src }}"
+          - "{{ src }}"
           paths:
             - "templates/{{ ansible_network_os }}/{{ inventory_hostname_short }}"
             - "templates/{{ ansible_network_os }}/default"
-      when: src is defined
 
-    - name: load configuration from text
-      include_role:
-        name: ansible-network.network-engine
-      vars:
-        function: load_config
-      when: config_text is defined
