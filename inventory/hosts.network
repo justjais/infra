@@ -22,6 +22,8 @@ ansible_network_os=junos
 [nxos]
 nxos01 ansible_host=an-nxos-01.ansible.eng.rdu2.redhat.com
 nxos02 ansible_host=an-nxos-02.ansible.eng.rdu2.redhat.com
+nxos9k01 ansible_host=an-nxos9k-01.ansible.eng.rdu2.redhat.com
+nxos9k02 ansible_host=an-nxos9k-02.ansible.eng.rdu2.redhat.com
 
 [nxos:vars]
 ansible_network_os=nxos
