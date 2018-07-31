@@ -1,0 +1,26 @@
+---
+- hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: check if checkpoint file exists on device
+      cli:
+        command: dir
+      register: ios_dir_listing
+
+    - name: missing checkpoint file
+      fail:
+        msg: "missing checkpoint configuration file, aborting"
+      when: ios_config_checkpoint_filename not in ios_dir_listing.stdout
+
+    - name: restore checkpoint file to running-config
+      ios_command_local:
+        commands:
+          - command: "copy flash:/{{ ios_config_checkpoint_filename }} running-config"
+            prompt: ["? "]
+            answer: "running-config"
+
+    - name: remove configuration checkpoint file
+      cli:
+        command: "delete /force flash:/{{ ios_config_checkpoint_filename }}"
+      when: ios_config_remove_temp_files
