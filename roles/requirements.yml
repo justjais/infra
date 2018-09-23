@@ -11,6 +11,10 @@
   version: v2.6.0
   name: ansible-network.arista_eos
 
+- src: https://github.com/ansible-network/arista_eos.git
+  version: devel
+  name: ansible-network.arista_eos_devel
+
 - src: https://github.com/ansible-network/cisco_ios.git
   version: v2.6.0
   name: ansible-network.cisco_ios
