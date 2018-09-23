@@ -1,6 +1,6 @@
 [all:vars]
 ansible_python_interpreter=python
-ansible_connect=network_cli
+ansible_connection=network_cli
 
 [eos]
 veos01 ansible_host=an-veos-01.ansible.eng.rdu2.redhat.com
