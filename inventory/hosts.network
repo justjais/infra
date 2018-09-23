@@ -1,5 +1,6 @@
 [all:vars]
 ansible_python_interpreter=python
+ansible_connect=network_cli
 
 [eos]
 veos01 ansible_host=an-veos-01.ansible.eng.rdu2.redhat.com
@@ -9,7 +10,6 @@ veos02 ansible_host=an-veos-02.ansible.eng.rdu2.redhat.com
 ansible_network_os=eos
 ansible_become=yes
 ansible_become_method=enable
-ansible_connection=network_cli
 ansible_network_provider=ansible-network.arista_eos
 
 [junos]
@@ -41,8 +41,6 @@ ansible_network_provider=ansible-network.cisco_ios
 ansible_become=yes
 ansible_become_method=enable
 ansible_become_pass=cisco
-ansible_connection=network_cli
-ansible_network_provider=privateip.ios
 
 [iosxr]
 iosxr01 ansible_host=an-iosxr-01.ansible.eng.rdu2.redhat.com
@@ -67,4 +65,3 @@ vyos02 ansible_host=an-vyos-02.ansible.eng.rdu2.redhat.com
 [vyos:vars]
 ansible_network_os=vyos
 ansible_network_provider=ansible-network.vyos
-
