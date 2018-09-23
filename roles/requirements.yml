@@ -3,6 +3,10 @@
   version: v2.6.5
   name: ansible-network.network-engine
 
+- src: https://github.com/ansible-network/config_manager.git
+  version: v2.6.0
+  name: ansible-network.config_manager
+
 - src: https://github.com/ansible-network/arista_eos.git
   version: v2.6.0
   name: ansible-network.arista_eos
