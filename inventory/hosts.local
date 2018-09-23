@@ -1,5 +1,7 @@
 [all:vars]
 ansible_python_interpreter=python
+ansible_user=ansible
+ansible_password=ansible
 
 [eos]
 veos01 ansible_host=an-veos-01.ansible.eng.rdu2.redhat.com
@@ -9,8 +11,10 @@ veos02 ansible_host=an-veos-02.ansible.eng.rdu2.redhat.com
 ansible_network_os=eos
 ansible_become=yes
 ansible_become_method=enable
+ansible_network_provider=privateip.eos
+ansible_user=admin
+ansible_password=admin
 ansible_connection=network_cli
-ansible_network_provider=ansible-network.arista_eos
 
 [junos]
 vsrx01 ansible_host=an-vsrx-01.ansible.eng.rdu2.redhat.com
@@ -18,6 +22,7 @@ vsrx02 ansible_host=an-vsrx-02.ansible.eng.rdu2.redhat.com
 
 [junos:vars]
 ansible_network_os=junos
+ansible_password=Ansible
 
 [nxos]
 nxos01 ansible_host=an-nxos-01.ansible.eng.rdu2.redhat.com
@@ -27,7 +32,10 @@ nxos9k02 ansible_host=an-nxos9k-02.ansible.eng.rdu2.redhat.com
 
 [nxos:vars]
 ansible_network_os=nxos
-ansible_network_provider=ansible-network.cisco_nxos
+ansible_user=admin
+ansible_password=admin
+ansible_network_provider=privateip.nxos
+ansible_connection=network_cli
 
 [ios]
 ios01 ansible_host=an-ios-01.ansible.eng.rdu2.redhat.com
@@ -37,12 +45,11 @@ csr02 ansible_host=an-csr-02.ansible.eng.rdu2.redhat.com
 
 [ios:vars]
 ansible_network_os=ios
-ansible_network_provider=ansible-network.cisco_ios
 ansible_become=yes
 ansible_become_method=enable
 ansible_become_pass=cisco
-ansible_connection=network_cli
 ansible_network_provider=privateip.ios
+ansible_connection=network_cli
 
 [iosxr]
 iosxr01 ansible_host=an-iosxr-01.ansible.eng.rdu2.redhat.com
@@ -50,6 +57,8 @@ iosxr02 ansible_host=an-iosxr-02.ansible.eng.rdu2.redhat.com
 
 [iosxr:vars]
 ansible_network_os=iosxr
+ansible_user=root
+ansible_password=root
 
 [asa]
 asa01 ansible_host=an-asa-01.ansible.eng.rdu2.redhat.com
@@ -59,6 +68,8 @@ ansible_network_os=asa
 ansible_become=yes
 ansible_become_method=enable
 ansible_become_pass=cisco
+ansible_user=cisco
+ansible_password=cisco
 
 [vyos]
 vyos01 ansible_host=an-vyos-01.ansible.eng.rdu2.redhat.com
@@ -66,5 +77,5 @@ vyos02 ansible_host=an-vyos-02.ansible.eng.rdu2.redhat.com
 
 [vyos:vars]
 ansible_network_os=vyos
-ansible_network_provider=ansible-network.vyos
+
 

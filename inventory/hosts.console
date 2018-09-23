@@ -1,0 +1,34 @@
+[all:vars]
+ansible_python_interpreter=python
+
+[virl]
+virl01 ansible_host=an-virl-01.ansible.eng.rdu2.redhat.com
+
+[nxos]
+nxos01 ansible_telnet_port=17038
+nxos02 ansible_telnet_port=17040
+nxos9k01 ansible_telnet_port=17023
+nxos9k02 ansible_telnet_port=17025
+
+[nxos:vars]
+ansible_network_os=nxos
+ansible_user=admin
+ansible_password=admin
+
+[ios]
+ios01 ansible_telnet_port=17005
+ios02 ansible_telnet_port=17007
+csr01 ansible_telnet_port=17001
+csr02 ansible_telnet_port=17003
+
+[ios:vars]
+ansible_network_os=ios
+ansible_user=ansible
+ansible_password=ansible
+
+[iosxr]
+iosxr01 ansible_telnet_port=17013
+iosxr02 ansible_telnet_port=17016
+
+[iosxr:vars]
+ansible_network_os=iosxr
