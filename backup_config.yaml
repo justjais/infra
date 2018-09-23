@@ -2,11 +2,17 @@
 - hosts: all
   gather_facts: no
 
+  vars:
+    dest_path: "/opt/network"
+    dest_file: "{{ inventory_hostname_short }}.cfg"
+
   tasks:
-    - name: get active configuration from network device
-      include_tasks: "includes/{{ ansible_network_os }}/backup_config.yaml"
+    - name: backup active configuration from devices
+      include_role:
+        name: ansible-network.config_manager
+        tasks_from: get
 
     - name: write configuration to ansible controller
       copy:
         content: "{{ configuration }}"
-        dest: "/opt/network/{{ inventory_hostname_short }}.cfg"
+        dest: "{{ dest_patht }}/{{ dest_file }}"
