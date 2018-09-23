@@ -15,4 +15,4 @@
     - name: write configuration to ansible controller
       copy:
         content: "{{ configuration }}"
-        dest: "{{ dest_patht }}/{{ dest_file }}"
+        dest: "{{ dest_path }}/{{ dest_file }}"
