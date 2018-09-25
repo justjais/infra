@@ -37,7 +37,7 @@ csr02 ansible_host=an-csr-02.ansible.eng.rdu2.redhat.com
 
 [ios:vars]
 ansible_network_os=ios
-ansible_network_provider=ansible-network.cisco_ios
+ansible_network_provider=ansible-network.cisco_ios_devel
 ansible_become=yes
 ansible_become_method=enable
 ansible_become_pass=cisco
