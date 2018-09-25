@@ -7,12 +7,5 @@
       include_role:
         name: ansible-network.config_manager
         tasks_from: load
-      loop_control:
-        loop_var: config_manager_file
-      with_first_found:
-        - files:
-          - "{{ src }}"
-          paths:
-            - "templates/{{ ansible_network_os }}/{{ inventory_hostname_short }}"
-            - "templates/{{ ansible_network_os }}/default"
-
+      vars:
+        config_manager_scm_url: https://github.com/privateip/infra_configs
