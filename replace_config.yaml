@@ -8,5 +8,5 @@
         name: ansible-network.config_manager
         tasks_from: load
       vars:
-        config_manager_file: "files/base/{{ inventory_hostname_short }}.cfg"
+        config_manager_scm_url: https://github.com/privateip/infra_configs
         config_manager_replace: yes
