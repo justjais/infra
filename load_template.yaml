@@ -1,0 +1,17 @@
+---
+- hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: load template configuration onto remote device
+      include_role:
+        name: ansible-network.config_manager
+        tasks_from: load
+      loop_control:
+        loop_var: config_manager_file
+      with_first_found:
+        - files: "{{ src }}"
+          paths:
+            - "templates/{{ ansible_network_os }}/{{ inventory_hostname_short }}"
+            - "templates/{{ ansible_network_os }}/default"
+            - "templates/default"
