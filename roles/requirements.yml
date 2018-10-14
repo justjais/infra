@@ -1,18 +1,11 @@
 ---
-- src: https://github.com/ansible-network/network-engine.git
-  name: ansible-network.network-engine
+- name: ansible-network.network-engine
 
-- src: https://github.com/ansible-network/config_manager.git
-  name: ansible-network.config_manager
+# install network resource roles
+- name: ansible-network.config_manager
 
-- src: https://github.com/ansible-network/arista_eos.git
-  name: ansible-network.arista_eos
-
-- src: https://github.com/ansible-network/cisco_ios.git
-  name: ansible-network.cisco_ios
-
-- src: https://github.com/ansible-network/cisco_nxos.git
-  name: ansible-network.cisco_nxos
-
-- src: https://github.com/ansible-network/vyos.git
-  name: ansible-network.vyos
+# install network provide roles
+- name: ansible-network.arista_eos
+- name: ansible-network.cisco_ios
+- name: ansible-network.cisco_nxos
+- name: ansible-network.vyos
