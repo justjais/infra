@@ -1,36 +1,18 @@
 ---
 - src: https://github.com/ansible-network/network-engine.git
-  version: v2.6.5
   name: ansible-network.network-engine
 
 - src: https://github.com/ansible-network/config_manager.git
-  version: v2.6.0
   name: ansible-network.config_manager
 
-- src: https://github.com/ansible-network/config_manager.git
-  version: devel
-  name: ansible-network.config_manager_devel
-
 - src: https://github.com/ansible-network/arista_eos.git
-  version: v2.6.0
   name: ansible-network.arista_eos
 
-- src: https://github.com/ansible-network/arista_eos.git
-  version: devel
-  name: ansible-network.arista_eos_devel
-
 - src: https://github.com/ansible-network/cisco_ios.git
-  version: v2.6.0
   name: ansible-network.cisco_ios
 
-- src: https://github.com/ansible-network/cisco_ios.git
-  version: devel
-  name: ansible-network.cisco_ios_devel
-
 - src: https://github.com/ansible-network/cisco_nxos.git
-  version: v2.6.0
   name: ansible-network.cisco_nxos
 
 - src: https://github.com/ansible-network/vyos.git
-  version: v2.6.0
   name: ansible-network.vyos
