@@ -1,9 +1,0 @@
----
-- name: "eos: get the current active configuration from target device"
-  eos_command:
-    commands: show running-config
-  register: configuration
-
-- name: set the configuration fact
-  set_fact:
-    configuration: "{{ configuration.stdout[0] }}"

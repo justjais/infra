@@ -1,7 +1,0 @@
----
-- hosts: all
-  gather_facts: no
-
-  tasks:
-    - name: get current software version from device
-      include_tasks: "includes/{{ ansible_network_os }}/get_software_version.yaml"

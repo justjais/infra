@@ -1,9 +1,0 @@
----
-- name: collect ios facts from device
-  import_role:
-    name: privateip.ios
-    tasks_from: get_facts
-
-- name: display software version to stdout
-  debug:
-    msg: "current software version is {{ cisco_ios.capabilities.network_os_version }}"

@@ -1,9 +1,0 @@
----
-- name: "vyos: get the current active configuration from target device"
-  cli:
-    command: show running-config
-  register: configuration
-
-- name: set the configuration fact
-  set_fact:
-    configuration: "{{ configuration.stdout }}"
