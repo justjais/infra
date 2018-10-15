@@ -25,7 +25,7 @@
         loop_control:
           loop_var: config_manager_file
         with_first_found:
-          - files: "{{ template_name }}"
+          - files: "{{ template_file }}"
             paths:
               - "{{ temp_working_dir.path }}/{{ ansible_network_os }}/{{ inventory_hostname_short }}"
               - "{{ temp_working_dir.path }}/{{ ansible_network_os }}/default"
